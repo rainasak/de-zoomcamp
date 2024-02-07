@@ -27,7 +27,7 @@ default_repo
 instance_metadata.json
 ~/.mage_data
 scratch*
-/mage_data*
+mage_data*
 *secrets*.json
 # magic-zoomcamp
 *.json
