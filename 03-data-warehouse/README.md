@@ -1,7 +1,7 @@
 # These are the SQL commands used to complete the homework on BigQuery
 
 > Firstly we need to setup the tables in BigQuery. We first create an external table using the parquet file in the GCS bucket.
-- ```
+1) ```
       CREATE OR REPLACE EXTERNAL TABLE `de-zoomcamp-411418.nyctaxi.green_trip_data_ext`
       OPTIONS(
         format = "parquet,
