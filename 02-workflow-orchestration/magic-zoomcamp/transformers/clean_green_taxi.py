@@ -23,8 +23,8 @@ def transform(data, *args, **kwargs):
     Returns:
         Anything (e.g. data frame, dictionary, array, int, str, etc.)
     """
-    data['lpep_pickup_date'] = data['lpep_pickup_datetime'].dt.date
-    data = data[(data['passenger_count'] > 0.0) & (data['trip_distance'] > 0.0)]
+    # data['lpep_pickup_date'] = data['lpep_pickup_datetime'].dt.date
+    # data = data[(data['passenger_count'] > 0.0) & (data['trip_distance'] > 0.0)]
     data.rename(columns={'VendorID': 'vendor_id', 'RatecodeID': 'ratecode_id', 'PULocationID': 'pu_location_id', 'DOLocationID': 'do_location_id'}, inplace=True)
     return data
 
@@ -36,5 +36,5 @@ def test_output(output, *args) -> None:
     assert output is not None, 'The output is undefined'
     assert 'vendor_id' in output.columns, 'Columns were not converted to snake case'
     assert 'VendorID' not in output.columns, 'Columns were not converted to snake case'
-    assert len(output[output['passenger_count'] == 0]) == 0, 'There are rows where passenger count is 0'
-    assert len(output[output['trip_distance'] == 0]) == 0, 'There are rows where trip distance is 0'
+    # assert len(output[output['passenger_count'] == 0]) == 0, 'There are rows where passenger count is 0'
+    # assert len(output[output['trip_distance'] == 0]) == 0, 'There are rows where trip distance is 0'

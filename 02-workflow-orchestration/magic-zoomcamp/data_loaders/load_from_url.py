@@ -15,8 +15,9 @@ def load_data_from_api(*args, **kwargs):
     """
 
     tables = []
-    for month in range(10, 13):
-        url = f"https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2020-{month}.parquet"
+    for month in range(1, 13):
+        url = f"https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2022-{'0'+ str(month) if month < 10 else month}.parquet"
+        print(url)
         response = requests.get(url, stream=True)
 
         br = pa.BufferReader(response.content)
